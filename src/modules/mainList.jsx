@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 
+
 export const MainList = () => {
     const [listsArray,setListsArray] = useState([])
     return(
@@ -22,7 +23,11 @@ export const MainList = () => {
                 {
                     // lists.map((element) =>  {element})
                 }
-                {/* Hier kommt ein Map hin der alle passenden Listen generiert */}
+                {/* Hier kommt ein Map hin der alle passenden Listen generiert 
+                    map elemente anschauen, für jedelement soll ein neues ListModul generiert werden.
+                    element, kann weitergegeben werden an ListModul, wie?   
+                */}
+                {/* <List/> */}
             </div>
         </div>
     )
