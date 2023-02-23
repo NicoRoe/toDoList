@@ -1,8 +1,29 @@
 import React,{useState} from 'react';
-
+import {List} from './List';
 
 export const MainList = () => {
-    const [listsArray,setListsArray] = useState([])
+    
+    const [listsArray,setListsArray] = useState(
+        [
+
+            {
+            toDo: "wash",
+            inProgress: false,
+            done: false},
+            {   toDo: "dry",
+                inProgress: false,
+                done: false},
+        ]
+    )
+
+    // listArray = 
+
+    //     listArray.map((list) => {
+    //         const newlist = {indexname: "somethingElse", inProgress: true, done: 2}        
+    //     })
+
+    //     setListsArray([...listsArray,])
+
     return(
         <div>
             <form action="">
@@ -19,15 +40,15 @@ export const MainList = () => {
             </form>
 
             <div className="listBox">
-                {listsArray}
-                {
-                    // lists.map((element) =>  {element})
-                }
-                {/* Hier kommt ein Map hin der alle passenden Listen generiert 
-                    map elemente anschauen, für jedelement soll ein neues ListModul generiert werden.
-                    element, kann weitergegeben werden an ListModul, wie?   
-                */}
-                {/* <List/> */}
+              
+               { listsArray.map((element,i) => <List
+               listsArray = {listsArray}
+               list = {element}
+               index = {i}
+               setListsArray = {setListsArray}/>)} 
+           
+               {/* { listsArray.map((element) => console.log(element))} */}
+                     
             </div>
         </div>
     )
