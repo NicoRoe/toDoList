@@ -1,19 +1,18 @@
 import React from 'react';
-import {InProgress,RenameToDo} from './buttonModule'
+import { InProgress, RenameToDo, DeleteToDo, Done } from './buttonModule'
 
-export const List = ({listsArray,list,index,setListsArray}) => {
-    return(
+export const List = ({ listsArray, list, index, setListsArray }) => {
+    return (
         <div>
-            
-            <p>{list.toDo}</p>
+            {list.done ? <p >{list.toDo} erledigt</p> : list.inProgress ? <p >{list.toDo} in arbeit</p> : <p>{list.toDo}</p>}
             <RenameToDo
-                listsArray = {listsArray}
-                list = {list}
-                index = {index}
-                setListsArray = {setListsArray}
-            />       
-            <button>delete</button>
-            <button>finished</button>
+                listsArray={listsArray}
+                index={index}
+                setListsArray={setListsArray}
+            />
+            <DeleteToDo listsArray={listsArray} index={index} setListsArray={setListsArray} />
+            <InProgress listsArray={listsArray} index={index} setListsArray={setListsArray} />
+            <Done listsArray={listsArray} index={index} setListsArray={setListsArray} />
         </div>
     )
 
