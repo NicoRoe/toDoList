@@ -1,17 +1,34 @@
-/* export const AddButton = () => {
+
+import { useState } from "react";
+
+export const AddButton = ({listsArray, setListsArray}) => {
+   
+   const add = (event) => {
+    event.preventDefault();
+    let value = event.currentTarget.parentNode.querySelector('input').value;
+   
+   const newObject = {
+    toDo: value,
+    inProgress: false,
+    done: false}
+
+    setListsArray([...listsArray,newObject]);
+}
+   
     return (
-        <div>
-            <input type="text" name="" />
-            <button name="">Add List</button>
-        </div>
+    <div>
+         <input
+                 type="text" />
+                <button onClick={add}>Add List</button>
+    </div>        
+
     )
-} */
-
-
+} 
 
 
 
 export const DeleteToDo = ({ listsArray, index, setListsArray }) => {
+
     // Delte List element
     // get index in listArray
     // listArray.splice(index,0)
@@ -28,11 +45,14 @@ export const DeleteToDo = ({ listsArray, index, setListsArray }) => {
 
 export const RenameToDo = ({ listsArray, index, setListsArray }) => {
     //Rename List Element
+    const [doRename,setDoRename] = useState(false);
 
 
-    const rename = () => {
 
-        const newName = "barret";
+const rename = (event) => {
+
+
+    const newName = event.currentTarget.parentNode.querySelector('input').value;
 
         const newListsArray = listsArray.map((list, item) => {
             if (index === item) {
@@ -43,21 +63,25 @@ export const RenameToDo = ({ listsArray, index, setListsArray }) => {
             else {
                 return list;
             }
-        })
-        setListsArray(newListsArray);
 
-        // const newList = {...list};
-        // console.log(newList);
+    })
+    setListsArray(newListsArray);
+    setDoRename(false);
+} 
 
-        // let newName = prompt("newName","PlaceHolder");
-        // newList = {...newList, toDo:newName};
-        // setListsArray([...listArray])
+const toggleRename = () => {
+    doRename?setDoRename(false):setDoRename(true);
+}
 
+    return(
+        <div>
+        <button onClick={toggleRename}>rename</button>
+        {doRename && 
+        <div>
+        <input></input>
+        <button  onClick={rename}>do Rename</button></div>}
+        </div>
 
-    }
-
-    return (
-        <button onClick={rename}>rename</button>
     )
 
 }
