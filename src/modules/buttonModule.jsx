@@ -1,27 +1,43 @@
-export const Button = () => {
+import { useState } from "react";
+
+export const AddButton = ({listsArray, setListsArray}) => {
+   
+   const add = (event) => {
+    event.preventDefault();
+    let value = event.currentTarget.parentNode.querySelector('input').value;
+   
+   const newObject = {
+    toDo: value,
+    inProgress: false,
+    done: false}
+
+    setListsArray([...listsArray,newObject]);
+}
+   
     return (
     <div>
-        <input type="text" name="" />
-        <button name="">Add List</button>
+         <input
+                 type="text" />
+                <button onClick={add}>Add List</button>
     </div>        
     )
 }
 
 
 
-
-
-export const DeleteToDo = () => {
+export const DeleteToDo = ({listsArray, setListsArray}) => {
     // Delte List element
 }
 
 export const RenameToDo = ({listsArray, list,index,setListsArray}) => {
     //Rename List Element
+    const [doRename,setDoRename] = useState(false);
 
 
-const rename = () => {
-    
-    const newName = "barret";
+const rename = (event) => {
+
+
+    const newName = event.currentTarget.parentNode.querySelector('input').value;
 
     const newListsArray = listsArray.map((list,item) => {
             if(index === item){
@@ -34,19 +50,21 @@ const rename = () => {
             }
     })
     setListsArray(newListsArray);
+    setDoRename(false);
+} 
 
-    // const newList = {...list};
-    // console.log(newList);
-
-    // let newName = prompt("newName","PlaceHolder");
-    // newList = {...newList, toDo:newName};
-    // setListsArray([...listArray])
-
-
-}    
+const toggleRename = () => {
+    doRename?setDoRename(false):setDoRename(true);
+}
 
     return(
-        <button onClick={rename}>rename</button>
+        <div>
+        <button onClick={toggleRename}>rename</button>
+        {doRename && 
+        <div>
+        <input></input>
+        <button  onClick={rename}>do Rename</button></div>}
+        </div>
     )
 
 }

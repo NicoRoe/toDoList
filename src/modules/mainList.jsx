@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import {List} from './List';
+import {AddButton} from './buttonModule';
 
 export const MainList = () => {
     
     const [listsArray,setListsArray] = useState(
         [
-
             {
             toDo: "wash",
             inProgress: false,
@@ -16,26 +16,13 @@ export const MainList = () => {
         ]
     )
 
-    // listArray = 
-
-    //     listArray.map((list) => {
-    //         const newlist = {indexname: "somethingElse", inProgress: true, done: 2}        
-    //     })
-
-    //     setListsArray([...listsArray,])
-
     return(
         <div>
             <form action="">
                 <fieldset>
-                <input
-                 onChange={(event) => event.preventDefault()}
-                 type="text" />
-                <button onClick={(event) => {
-                    event.preventDefault();
-                    let value = event.currentTarget.parentNode.querySelector('input').value;
-                    setListsArray(listsArray => [...listsArray,value]);
-                }}>Add List</button>
+               <AddButton 
+               listsArray = {listsArray}
+               setListsArray = {setListsArray}/>
                 </fieldset>
             </form>
 
