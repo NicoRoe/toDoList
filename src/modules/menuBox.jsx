@@ -4,11 +4,11 @@ export const MenuBox = (props) => {
 
         // useState aufbauen und durch klicken veränderbar machen 
     return(
-        <div className="quarterBox">
-            <div>a</div>
-            <div>b</div>
-            <div>c</div>
-            <div>d</div>
+        <div className="gridBox">
+            <button>a</button>
+            <button>b</button>
+            <button>c</button>
+            <button>d</button>
         </div>
     )
 }

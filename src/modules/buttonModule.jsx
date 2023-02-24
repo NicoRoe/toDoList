@@ -43,9 +43,8 @@ export const DeleteToDo = ({ listsArray, index, setListsArray }) => {
     )
 }
 
-export const RenameToDo = ({ listsArray, index, setListsArray }) => {
+export const RenameToDo = ({ listsArray, index, setListsArray,doRename,setDoRename }) => {
     //Rename List Element
-    const [doRename,setDoRename] = useState(false);
 
 
 
@@ -69,17 +68,10 @@ const rename = (event) => {
     setDoRename(false);
 } 
 
-const toggleRename = () => {
-    doRename?setDoRename(false):setDoRename(true);
-}
-
     return(
         <div>
-        <button onClick={toggleRename}>rename</button>
-        {doRename && 
-        <div>
         <input></input>
-        <button  onClick={rename}>do Rename</button></div>}
+        <button  onClick={rename}>do Rename</button>
         </div>
 
     )

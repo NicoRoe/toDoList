@@ -1,10 +1,9 @@
 import React,{useState} from 'react';
 import {List} from './List';
 import {AddButton} from './buttonModule';
-
 export const MainList = () => {
-    
-    const [listsArray,setListsArray] = useState(
+
+ const [listsArray,setListsArray] = useState(
         [
             {
             toDo: "wash",
@@ -15,6 +14,7 @@ export const MainList = () => {
                 done: false},
         ]
     )
+
 
     return(
         <div>

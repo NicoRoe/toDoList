@@ -4,7 +4,7 @@ import '../css/style.css';
 import {MenuBox} from './menuBox';
 
 
-export const LegoBox = () => {
+export const SandBox = () => {
 
     const menuFilter = useState(1);
     return (
