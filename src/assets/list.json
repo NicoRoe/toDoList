@@ -1,0 +1,13 @@
+
+{
+    "jsonList" : {    
+"wash" : {
+        "toDo": "wash",
+        "inProgress": false,
+        "done": false},
+        
+"dry" :  {   "toDo": "dry",
+            "inProgress": false,
+            "done": false}
+}
+}

@@ -1,10 +1,10 @@
 import './App.css';
-import { LegoBox } from './modules/legoBox';
+import { SandBox } from './modules/sandBox';
 
 function App() {
   return (
     <div className="App">
-      <LegoBox/>
+      <SandBox/>
     </div>
   );
 }
